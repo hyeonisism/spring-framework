@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2019 the original author or authors.
+ * Copyright 2002-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -322,13 +322,14 @@ public class ServletAnnotationControllerHandlerMethodTests extends AbstractServl
 		assertThat(allowHeader).as("No Allow header").isNotNull();
 		Set<String> allowedMethods = new HashSet<>();
 		allowedMethods.addAll(Arrays.asList(StringUtils.delimitedListToStringArray(allowHeader, ", ")));
-		assertThat(allowedMethods.size()).as("Invalid amount of supported methods").isEqualTo(6);
+		assertThat(allowedMethods.size()).as("Invalid amount of supported methods").isEqualTo(7);
 		assertThat(allowedMethods.contains("PUT")).as("PUT not allowed").isTrue();
 		assertThat(allowedMethods.contains("DELETE")).as("DELETE not allowed").isTrue();
 		assertThat(allowedMethods.contains("HEAD")).as("HEAD not allowed").isTrue();
 		assertThat(allowedMethods.contains("TRACE")).as("TRACE not allowed").isTrue();
 		assertThat(allowedMethods.contains("OPTIONS")).as("OPTIONS not allowed").isTrue();
 		assertThat(allowedMethods.contains("POST")).as("POST not allowed").isTrue();
+		assertThat(allowedMethods.contains("CONNECT")).as("CONNECT not allowed").isTrue();
 	}
 
 	@Test
@@ -2898,6 +2899,10 @@ public class ServletAnnotationControllerHandlerMethodTests extends AbstractServl
 
 		@RequestMapping(value = "/otherPath.do", method = RequestMethod.GET)
 		public void get() {
+		}
+
+		@RequestMapping(value = "/myPath.do", method = RequestMethod.CONNECT)
+		public void connect() {
 		}
 	}
 

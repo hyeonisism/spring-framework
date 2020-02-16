@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2015 the original author or authors.
+ * Copyright 2002-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ package org.springframework.web.bind.annotation;
  * and "dispatchTraceRequest" properties, switching them to "true" if necessary.
  *
  * @author Juergen Hoeller
+ * @author Hyunjin Choi
  * @since 2.5
  * @see RequestMapping
  * @see org.springframework.web.servlet.DispatcherServlet#setDispatchOptionsRequest
@@ -34,6 +35,6 @@ package org.springframework.web.bind.annotation;
  */
 public enum RequestMethod {
 
-	GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+	GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE, CONNECT
 
 }
